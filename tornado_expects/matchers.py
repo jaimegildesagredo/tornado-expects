@@ -34,7 +34,15 @@ class have_headers(have_keys):
     def _description(self, response):
         return super(have_headers, self)._description(response.headers)
 
+
+class have_status(Matcher):
+    def __init__(self, expected):
+        self._expected = expected
+
+    def _match(self, response):
+        return response.code == self._expected
+
 be_ok = _be_ok()
 be_json = _be_json()
 
-__all__ = ['be_ok', 'be_json', 'have_header', 'have_headers']
+__all__ = ['be_ok', 'be_json', 'have_header', 'have_headers', 'have_status']
