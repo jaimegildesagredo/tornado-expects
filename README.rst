@@ -48,7 +48,49 @@ Just import the ``expect`` callable and the Tornado-Expects matchers and start w
 Matchers
 ========
 
-TODO
+be_ok
+-----
+
+.. code-block:: python
+
+    expect(response).to(be_ok)
+    expect(response).not_to(be_ok)
+
+be_json
+-------
+
+.. code-block:: python
+
+    expect(response).to(be_json)
+    expect(response).not_to(be_json)
+
+
+have_header
+-----------
+
+.. code-block:: python
+
+    expect(response).to(have_header('Content-Type'))
+    expect(response).to(have_header('Content-Type', 'text/xml'))
+    expect(response).to(have_header('Content-Type', start_with('text/xml')))
+    expect(response).not_to(have_header('ETag'))
+
+have_headers
+------------
+
+.. code-block:: python
+
+    expect(response).to(have_headers('Content-Type', 'Content-Length'))
+    expect(response).to(have_headers({'Content-Type': 'text/html'}))
+    expect(response).not_to(have_headers('Etag', 'Authorization'))
+
+have_status
+-----------
+
+.. code-block:: python
+
+    expect(response).to(have_status(304))
+    expect(response).not_to(have_status(500))
 
 Specs
 =====
