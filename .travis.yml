@@ -6,8 +6,13 @@ python:
     - 3.4
     - pypy
 
+env:
+    - TORNADO_VERSION=''
+    - TORNADO_VERSION='>=3.0,<4.0'
+
 install:
  - python setup.py sdist
+ - pip install tornado$TORNADO_VERSION
  - pip install dist/tornado-expects-`python setup.py --version`.tar.gz
  - pip install -r test-requirements.txt
 
