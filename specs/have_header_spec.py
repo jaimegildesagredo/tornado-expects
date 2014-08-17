@@ -11,12 +11,18 @@ A_HEADER_VALUE = 'a header value'
 ANOTHER_HEADER_KEY = 'another header key'
 
 with describe('have_header'):
+    with before.each:
+        self.response = response(headers={A_HEADER_KEY: A_HEADER_VALUE})
+
     with it('passes if response has header'):
-        expect(response(headers={A_HEADER_KEY: A_HEADER_VALUE})).to(have_header(A_HEADER_KEY))
+        expect(self.response).to(have_header(A_HEADER_KEY))
+
+    with it('passes if response has header value'):
+        expect(self.response).to(have_header(A_HEADER_KEY, A_HEADER_VALUE))
 
     with it('fails if response has not header'):
         with failure(''):
-            expect(response(headers={A_HEADER_KEY: A_HEADER_VALUE})).to(have_header(ANOTHER_HEADER_KEY))
+            expect(self.response).to(have_header(ANOTHER_HEADER_KEY))
 
 
 def response(headers):

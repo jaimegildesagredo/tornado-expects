@@ -6,6 +6,7 @@ except ImportError:
     import http.client as httplib
 
 from expects.matchers import Matcher
+from expects.matchers.built_in import have_key
 
 
 class _be_ok(Matcher):
@@ -18,12 +19,12 @@ class _be_json(Matcher):
         return 'application/json' in response.headers['Content-Type']
 
 
-class have_header(Matcher):
-    def __init__(self, expected):
-        self._expected = expected
-
+class have_header(have_key):
     def _match(self, response):
-        return self._expected in response.headers
+        return super(have_header, self)._match(response.headers)
+
+    def _description(self, response):
+        return super(have_header, self)._description(response.headers)
 
 be_ok = _be_ok()
 be_json = _be_json()
