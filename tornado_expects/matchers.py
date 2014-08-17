@@ -17,9 +17,15 @@ class _be_json(Matcher):
     def _match(self, response):
         return 'application/json' in response.headers['Content-Type']
 
-be_json = _be_json()
+
+class have_header(Matcher):
+    def __init__(self, expected):
+        self._expected = expected
+
+    def _match(self, response):
+        return self._expected in response.headers
 
 be_ok = _be_ok()
 be_json = _be_json()
 
-__all__ = ['be_ok', 'be_json']
+__all__ = ['be_ok', 'be_json', 'have_header']
