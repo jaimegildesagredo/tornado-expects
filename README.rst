@@ -33,7 +33,7 @@ Also you can install the latest sources from *Github*.
 Usage
 =====
 
-Just import the ``expect`` callable and the Tornado-Expects matchers and start writing assertions for test doubles.
+Just import the ``expect`` callable and the Tornado-Expects matchers and start writing assertions.
 
 .. code-block:: python
 
