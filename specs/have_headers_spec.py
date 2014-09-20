@@ -29,7 +29,7 @@ with describe('have_headers'):
         }))
 
     with it('fails if response has not header'):
-        with failure(''):
+        with failure:
             expect(self.response).to(have_headers(NON_EXISTING_HEADER_KEY))
 
 

@@ -14,7 +14,7 @@ with describe('be_json'):
         expect(response(content_type='application/json; charset=utf-8')).to(be_json)
 
     with it('fails if response content type is text/xml'):
-        with failure(''):
+        with failure:
             expect(response(content_type='text/xml')).to(be_json)
 
 

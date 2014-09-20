@@ -14,7 +14,7 @@ with describe('have_status'):
         expect(response(status=304)).to(have_status(304))
 
     with it('fails if response status code is not 200'):
-        with failure(''):
+        with failure:
             expect(response(status=301)).to(have_status(200))
 
 

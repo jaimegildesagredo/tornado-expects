@@ -14,7 +14,7 @@ with describe('be_ok'):
         expect(response(status=304)).to(be_ok)
 
     with it('fails if response status code is 400'):
-        with failure(''):
+        with failure:
             expect(response(status=400)).to(be_ok)
 
 

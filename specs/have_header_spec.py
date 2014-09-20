@@ -21,7 +21,7 @@ with describe('have_header'):
         expect(self.response).to(have_header(A_HEADER_KEY, A_HEADER_VALUE))
 
     with it('fails if response has not header'):
-        with failure(''):
+        with failure:
             expect(self.response).to(have_header(ANOTHER_HEADER_KEY))
 
 
