@@ -1,2 +1,2 @@
 tornado
-expects>=0.5.0,<0.8.0rc1
+expects>=0.8.0rc4
