@@ -7,7 +7,7 @@ long_description = open('README.rst').read()
 
 setup(
     name='tornado-expects',
-    version='0.1.0',
+    version='0.2.0rc1',
     description='Expects matchers for Tornado request and response objects',
     long_description=long_description,
     url='https://github.com/jaimegildesagredo/tornado-expects',
