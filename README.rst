@@ -41,7 +41,7 @@ Just import the ``expect`` callable and the Tornado-Expects matchers and start w
     from tornado_expects import *
     from tornado.httpclient import HTTPClient
 
-    response = http_client.fetch('https://example.com')
+    response = HTTPClient().fetch('https://example.com')
 
     expect(response).to(be_ok)
 
